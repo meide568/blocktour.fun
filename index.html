@@ -1,74 +1,103 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>BlockTour.fun - 你的每日方块解压站</title>
+    <title>Block Tour - Play The Addictive Puzzle Game Online | blocktour.fun</title>
+    <meta name="description" content="Play Block Tour online for free! A challenging and addictive brain-teasing puzzle game where you guide the master block to the exit. Perfect for all ages.">
+    <meta name="keywords" content="Block Tour, block tour fun, puzzle game, online game, kfz game, block puzzle, brain game, free game, logic game">
     
-    <link rel="icon" type="image/png" href="/images/favicon.png">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-
+    <link rel="canonical" href="https://blocktour.fun/">
+    
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
     <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #F0F0F0;
-            color: #333;
-            text-align: center; /* 让文字内容也居中 */
-            padding: 20px;
-            margin: 0;
+        /* Using a system font stack that resembles Apple's San Francisco font */
+        @import url('https://rsms.me/inter/inter.css');
+        html {
+            font-family: 'Inter', sans-serif;
         }
-        .header {
-            margin-bottom: 30px;
-        }
-        h1 {
-            color: #1A237E;
-            margin-top: 0;
-        }
-        p {
-            color: #555;
-        }
-        .game-container-responsive {
+        
+        /* Helper for responsive iframe aspect ratio */
+        .aspect-ratio-16-9 {
             position: relative;
-            overflow: hidden;
             width: 100%;
-            max-width: 960px;
-            margin: 20px auto;
-            padding-top: 56.25%;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding-bottom: 56.25%; /* 9 / 16 = 0.5625 */
         }
-        .game-container-responsive iframe {
+        .aspect-ratio-16-9 iframe {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            border: none;
         }
     </style>
 </head>
 
-<body>
+<body class="bg-gray-50 dark:bg-black text-gray-800 dark:text-gray-200 antialiased">
 
-    <header class="header">
-        <img src="/images/logo.png" alt="BlockTour.fun Logo" width="250">
-        <h1>你的每日方块解压站</h1>
-    </header>
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16">
 
-    <main>
-        <p>↓ 点击下方开始游戏 ↓</p>
-        <div class="game-container-responsive">
-            <iframe 
-                src="https://www.crazygames.com/embed/block-tour-kfz" 
-                allow="gamepad *;">
-            </iframe>
-        </div>
-    </main>
+        <header class="text-center mb-8 md:mb-12">
+            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tighter text-gray-900 dark:text-white">
+                Block Tour
+            </h1>
+            
+            <p class="mt-4 max-w-3xl mx-auto text-lg md:text-xl text-gray-600 dark:text-gray-400">
+                An addictive brain-teasing puzzle game where every move counts.
+            </p>
+        </header>
+
+        <main>
+            <section id="game-container" class="mb-12 md:mb-16">
+                 <div class="aspect-ratio-16-9 bg-black rounded-xl shadow-2xl overflow-hidden ring-1 ring-gray-900/10">
+                    <iframe src="https://www.crazygames.com/embed/block-tour-kfz" style="width: 100%; height: 100%;" frameborder="0" allow="gamepad *;"></iframe>
+                </div>
+            </section>
+
+            <section id="about-game" class="prose prose-lg dark:prose-invert max-w-none prose-h2:tracking-tight prose-h2:font-bold prose-a:text-blue-600 dark:prose-a:text-blue-400">
+                
+                <h2>About The Game</h2>
+                <p>
+                    Welcome to Block Tour! This game is a captivating and challenging puzzle adventure inspired by classic "unblock me" style games, often known as Klotski or KFZ puzzles. The objective is simple: guide the main, uniquely marked block to the designated exit. However, the path is obstructed by other blocks that you must strategically slide out of the way.
+                </p>
+                <p>
+                    Challenge your spatial reasoning and planning skills across numerous levels, each more intricate than the last. With its clean visuals and intuitive controls, Block Tour provides a pure puzzle-solving experience that is both relaxing and mentally stimulating.
+                </p>
+
+                <h2>How to Play</h2>
+                <p>
+                    The controls are straightforward, designed for both mouse and touch screens:
+                </p>
+                <ul>
+                    <li><strong>Click/Tap and Drag:</strong> Select any block and drag it horizontally or vertically into an empty space.</li>
+                    <li><strong>Objective:</strong> Clear a path to move the primary block (the one with the pattern) to the exit area on the right side of the board.</li>
+                    <li><strong>Strategy is Key:</strong> Think several moves ahead! Sometimes you need to move blocks out of the way to make room for other blocks to move. The fewest moves wins!</li>
+                </ul>
+                
+                <h2>Features</h2>
+                <ul>
+                    <li><strong>Engaging Puzzles:</strong> Hundreds of levels to test your wits, with increasing difficulty.</li>
+                    <li><strong>Minimalist Design:</strong> A clean, distraction-free interface that lets you focus on the puzzle.</li>
+                    <li><strong>Fully Responsive:</strong> Enjoy a seamless experience on your PC, tablet, or mobile phone.</li>
+                    <li><strong>Absolutely Free:</strong> Play instantly in your browser with no downloads required.</li>
+                </ul>
+
+            </section>
+        </main>
+
+        <footer class="text-center mt-12 md:mt-20 pt-8 border-t border-gray-200 dark:border-gray-800">
+            <p class="text-sm text-gray-500 dark:text-gray-400">
+                &copy; 2025 blocktour.fun. All Rights Reserved. Play responsibly.
+            </p>
+        </footer>
+
+    </div>
 
 </body>
 </html>
