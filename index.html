@@ -3,21 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的游戏网站</title>
+    
+    <title>BlockTour.fun - 你的每日方块解压站</title>
+    
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
         body {
-            font-family: sans-serif; /* 美化一下字体 */
-            padding: 20px;          /* 页面内容离边缘留点空隙 */
+            font-family: 'Poppins', sans-serif;
+            background-color: #F0F0F0;
+            color: #333;
+            text-align: center; /* 让文字内容也居中 */
+            padding: 20px;
+            margin: 0;
+        }
+        .header {
+            margin-bottom: 30px;
+        }
+        h1 {
+            color: #1A237E;
+            margin-top: 0;
+        }
+        p {
+            color: #555;
         }
         .game-container-responsive {
             position: relative;
             overflow: hidden;
             width: 100%;
-            max-width: 960px; /* 游戏最大宽度，避免在超大屏幕上过宽 */
-            margin: 20px auto;  /* 让游戏在页面上居中 */
-            padding-top: 56.25%; /* 16:9的宽高比 */
-            border: 1px solid #ccc; /* 给游戏加个边框 */
+            max-width: 960px;
+            margin: 20px auto;
+            padding-top: 56.25%;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
         .game-container-responsive iframe {
             position: absolute;
@@ -28,21 +51,24 @@
             border: none;
         }
     </style>
-
-    </head>
+</head>
 
 <body>
-    <h1>欢迎！</h1>
-    <p>在这里玩 Block Tour 游戏：</p>
 
-    <div class="game-container-responsive">
-        <iframe 
-            src="https://www.crazygames.com/embed/block-tour-kfz" 
-            allow="gamepad *;">
-        </iframe>
-    </div>
+    <header class="header">
+        <img src="/images/logo.png" alt="BlockTour.fun Logo" width="250">
+        <h1>你的每日方块解压站</h1>
+    </header>
 
-    <p>希望你玩得开心！</p>
-    
-    </body>
+    <main>
+        <p>↓ 点击下方开始游戏 ↓</p>
+        <div class="game-container-responsive">
+            <iframe 
+                src="https://www.crazygames.com/embed/block-tour-kfz" 
+                allow="gamepad *;">
+            </iframe>
+        </div>
+    </main>
+
+</body>
 </html>
