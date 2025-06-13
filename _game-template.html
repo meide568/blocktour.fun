@@ -23,6 +23,9 @@
             <h1 class="text-4xl md:text-5xl font-extrabold tracking-tighter text-gray-900 dark:text-white">
                 [GAME_TITLE]
             </h1>
+       <button id="fullscreen-btn" class="mt-2 px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition">
+    Enter Fullscreen
+</button>
         </header>
 
         <main>
@@ -40,6 +43,26 @@
         </footer>
 
     </div>
+<script>
+    // 找到我们刚刚添加的“全屏”按钮
+    const fullscreenBtn = document.getElementById('fullscreen-btn');
+    // 找到包含游戏的iframe
+    const gameIframe = document.querySelector('#game-container iframe');
 
+    // 只有当两个元素都找到时，才进行下一步
+    if (fullscreenBtn && gameIframe) {
+        // 为“全屏”按钮添加一个点击事件
+        fullscreenBtn.addEventListener('click', () => {
+            // 检查并调用不同浏览器支持的全屏API
+            if (gameIframe.requestFullscreen) {
+                gameIframe.requestFullscreen();
+            } else if (gameIframe.webkitRequestFullscreen) { /* 兼容 Safari */
+                gameIframe.webkitRequestFullscreen();
+            } else if (gameIframe.msRequestFullscreen) { /* 兼容 IE11 */
+                gameIframe.msRequestFullscreen();
+            }
+        });
+    }
+</script>
 </body>
 </html>
