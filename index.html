@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Block Tour: Your Daily Puzzle Fix | blocktour.fun</title>
-    <meta name="description" content="Your daily puzzle fix! Play Block Tour, Bridge Race, and other addictive puzzle games online for free.">
-    <meta name="keywords" content="Block Tour, Bridge Race, puzzle game, online game, block puzzle, brain game, free game, daily puzzle, puzzle fix">
+    <title>BlockTour.fun: Your Daily Puzzle & Unwind Fix</title>
+    <meta name="description" content="Your daily puzzle fix! Play Block Tour, Bridge Race, and other addictive puzzle games online for free. Filter by category to find your perfect game.">
+    <meta name="keywords" content="Block Tour, Bridge Race, puzzle game, online game, block puzzle, brain game, free game, daily puzzle, puzzle fix, action games, skill games">
     
     <link rel="canonical" href="https://blocktour.fun/">
     
@@ -21,94 +21,96 @@
         html { font-family: 'Inter', sans-serif; }
         .aspect-ratio-16-9 { position: relative; width: 100%; padding-bottom: 56.25%; }
         .aspect-ratio-16-9 iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        
+        /* ▼▼▼ 新增的CSS样式，用于高亮当前选中的筛选按钮 ▼▼▼ */
+        .filter-btn.active {
+            background-color: #2563EB; /* Tailwind's blue-600 */
+            color: white;
+            font-weight: 600;
+        }
     </style>
 </head>
 
 <body class="bg-gray-50 dark:bg-black text-gray-800 dark:text-gray-200 antialiased">
 
-   <nav class="w-full border-b dark:border-gray-800 bg-gray-50 dark:bg-black">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-4">
-        <div>
-            <a href="/" class="text-xl font-bold text-gray-900 dark:text-white hover:text-gray-700 dark:hover:text-gray-300">BlockTour.fun</a>
+    <nav class="w-full border-b dark:border-gray-800 bg-white dark:bg-gray-900/50 backdrop-blur-sm sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-4">
+            <div>
+                <a href="/" class="text-xl font-bold text-gray-900 dark:text-white hover:text-gray-700 dark:hover:text-gray-300">BlockTour.fun</a>
+            </div>
+            <div class="space-x-6">
+                <a href="/" class="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition">All Games</a>
+                <a href="/about.html" class="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition">About Us</a>
+            </div>
         </div>
-        <div class="space-x-6">
-            <a href="/" class="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition">All Games</a>
-            <a href="/about.html" class="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition">About Us</a>
-        </div>
-    </div>
-</nav> <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16">
+    </nav>
 
-        <header class="text-center mb-8 md:mb-12">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16">
+
+        <header class="text-center mb-12 md:mb-16">
             <h1 class="text-4xl md:text-6xl font-extrabold tracking-tighter text-gray-900 dark:text-white">
-                Block Tour
+                Your Daily Puzzle Fix
             </h1>
-           <button id="fullscreen-btn" class="mt-2 px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition">
-    Enter Fullscreen
-</button>
             <p class="mt-4 max-w-3xl mx-auto text-lg md:text-xl text-gray-600 dark:text-gray-400">
-                Your Daily Puzzle Fix.
+                A curated collection of high-quality games to challenge your mind and soothe your soul.
             </p>
         </header>
 
         <main>
-            <section id="game-container" class="mb-12 md:mb-16">
-                 <div class="aspect-ratio-16-9 bg-black rounded-xl shadow-2xl overflow-hidden ring-1 ring-gray-900/10">
-                    <iframe src="https://www.crazygames.com/embed/block-tour-kfz" frameborder="0" allow="gamepad *; clipboard-write *" allowfullscreen loading="lazy" title="Block Tour Game"></iframe>
+            <section id="all-games">
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-white mb-8">All Games</h2>
+                
+                <div id="filter-buttons" class="flex justify-center flex-wrap gap-2 md:gap-4 mb-8">
+                    <button class="filter-btn active px-4 py-2 text-sm font-medium text-gray-700 bg-white dark:bg-gray-800 dark:text-gray-300 rounded-full shadow-sm hover:bg-gray-100 dark:hover:bg-gray-700 transition" data-filter="all">All</button>
+                    <button class="filter-btn px-4 py-2 text-sm font-medium text-gray-700 bg-white dark:bg-gray-800 dark:text-gray-300 rounded-full shadow-sm hover:bg-gray-100 dark:hover:bg-gray-700 transition" data-filter="puzzle">Puzzle & Logic</button>
+                    <button class="filter-btn px-4 py-2 text-sm font-medium text-gray-700 bg-white dark:bg-gray-800 dark:text-gray-300 rounded-full shadow-sm hover:bg-gray-100 dark:hover:bg-gray-700 transition" data-filter="action">Action & Skill</button>
+                    <button class="filter-btn px-4 py-2 text-sm font-medium text-gray-700 bg-white dark:bg-gray-800 dark:text-gray-300 rounded-full shadow-sm hover:bg-gray-100 dark:hover:bg-gray-700 transition" data-filter="relaxing">Relaxing</button>
+                </div>
+
+                <div id="game-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <a href="/" class="game-card block group bg-white dark:bg-gray-900 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300" data-category="puzzle logic relaxing">
+                        <div class="overflow-hidden rounded-t-lg">
+                            <img src="/images/block-tour-kfz.jpg" alt="Block Tour Game Thumbnail" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="p-4">
+                           <h3 class="text-lg font-bold text-gray-900 dark:text-white">Block Tour</h3>
+                           <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">The classic brain-teasing puzzle.</p>
+                        </div>
+                    </a>
+
+                    <a href="/bridge-race.html" class="game-card block group bg-white dark:bg-gray-900 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300" data-category="action racing hyper-casual">
+                        <div class="overflow-hidden rounded-t-lg">
+                            <img src="/images/bridge-race.jpg" alt="Bridge Race Game Thumbnail" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="p-4">
+                           <h3 class="text-lg font-bold text-gray-900 dark:text-white">Bridge Race</h3>
+                           <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Build bridges and race to the finish line!</p>
+                        </div>
+                    </a>
+
+                    <a href="/slice-master.html" class="game-card block group bg-white dark:bg-gray-900 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300" data-category="skill action satisfying">
+                        <div class="overflow-hidden rounded-t-lg">
+                            <img src="/images/slice-master.jpg" alt="Slice Master Game Thumbnail" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="p-4">
+                           <h3 class="text-lg font-bold text-gray-900 dark:text-white">Slice Master</h3>
+                           <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">The ultimate knife throwing challenge.</p>
+                        </div>
+                    </a>
+
+                    <a href="/crazy-office.html" class="game-card block group bg-white dark:bg-gray-900 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300" data-category="funny action stress-relief relaxing">
+                        <div class="overflow-hidden rounded-t-lg">
+                            <img src="/images/crazy-office.jpg" alt="Crazy Office Slap and Smash Game Thumbnail" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="p-4">
+                           <h3 class="text-lg font-bold text-gray-900 dark:text-white">Crazy Office</h3>
+                           <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Unleash your stress in the office!</p>
+                        </div>
+                    </a>
+
                 </div>
             </section>
-
-            <section id="more-games">
-    <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-white mb-8">More Games</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        
-        <a href="/bridge-race.html" class="block group bg-white dark:bg-gray-900 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
-            <div class="overflow-hidden rounded-t-lg">
-                <img src="/images/bridge-race.jpg" alt="Bridge Race Game Thumbnail" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
-            </div>
-            <div class="p-4">
-               <h3 class="text-lg font-bold text-gray-900 dark:text-white">Bridge Race</h3>
-               <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Build bridges and race to the finish line!</p>
-               <div class="mt-3 flex flex-wrap gap-2">
-                   <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">Action</span>
-                   <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">Racing</span>
-               </div>
-            </div>
-        </a>
-
-        <a href="/slice-master.html" class="block group bg-white dark:bg-gray-900 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
-            <div class="overflow-hidden rounded-t-lg">
-                <img src="/images/slice-master.jpg" alt="Slice Master Game Thumbnail" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
-            </div>
-            <div class="p-4">
-               <h3 class="text-lg font-bold text-gray-900 dark:text-white">Slice Master</h3>
-               <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">The ultimate knife throwing challenge.</p>
-               <div class="mt-3 flex flex-wrap gap-2">
-                   <span class="bg-indigo-100 text-indigo-800 text-xs font-semibold px-2.5 py-0.5 rounded-full dark:bg-indigo-900 dark:text-indigo-300">Skill</span>
-                   <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">Action</span>
-               </div>
-            </div>
-        </a>
-
-        <a href="/crazy-office.html" class="block group bg-white dark:bg-gray-900 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
-            <div class="overflow-hidden rounded-t-lg">
-                <img src="/images/crazy-office.jpg" alt="Crazy Office Slap and Smash Game Thumbnail" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
-            </div>
-            <div class="p-4">
-               <h3 class="text-lg font-bold text-gray-900 dark:text-white">Crazy Office</h3>
-               <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Unleash your stress in the office!</p>
-               <div class="mt-3 flex flex-wrap gap-2">
-                   <span class="bg-red-100 text-red-800 text-xs font-semibold px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300">Funny</span>
-                   <span class="bg-yellow-100 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded-full dark:bg-yellow-900 dark:text-yellow-300">Stress Relief</span>
-               </div>
-            </div>
-        </a>
-
-    </div>
-</section>
-            <section id="about-game" class="prose prose-lg dark:prose-invert max-w-none mt-12 md:mt-16">
-                <h2>About Block Tour</h2>
-                <p>Welcome to Block Tour! ...</p>
-                </section>
         </main>
 
         <footer class="text-center mt-12 md:mt-20 pt-8 border-t border-gray-200 dark:border-gray-800">
@@ -116,26 +118,38 @@
         </footer>
 
     </div>
-<script>
-    // 找到我们刚刚添加的“全屏”按钮
-    const fullscreenBtn = document.getElementById('fullscreen-btn');
-    // 找到包含游戏的iframe
-    const gameIframe = document.querySelector('#game-container iframe');
 
-    // 只有当两个元素都找到时，才进行下一步
-    if (fullscreenBtn && gameIframe) {
-        // 为“全屏”按钮添加一个点击事件
-        fullscreenBtn.addEventListener('click', () => {
-            // 检查并调用不同浏览器支持的全屏API
-            if (gameIframe.requestFullscreen) {
-                gameIframe.requestFullscreen();
-            } else if (gameIframe.webkitRequestFullscreen) { /* 兼容 Safari */
-                gameIframe.webkitRequestFullscreen();
-            } else if (gameIframe.msRequestFullscreen) { /* 兼容 IE11 */
-                gameIframe.msRequestFullscreen();
-            }
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const gameCards = document.querySelectorAll('.game-card');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // 移除所有按钮的 'active' 状态
+                    filterButtons.forEach(btn => {
+                        btn.classList.remove('active');
+                        btn.classList.remove('bg-blue-600', 'text-white', 'font-semibold');
+                    });
+
+                    // 为当前点击的按钮添加 'active' 状态
+                    button.classList.add('active');
+                    button.classList.add('bg-blue-600', 'text-white', 'font-semibold');
+
+                    const filter = button.dataset.filter;
+
+                    // 遍历所有游戏卡片，根据筛选条件显示或隐藏
+                    gameCards.forEach(card => {
+                        const categories = card.dataset.category;
+                        if (filter === 'all' || (categories && categories.includes(filter))) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
         });
-    }
-</script>
+    </script>
 </body>
 </html>
