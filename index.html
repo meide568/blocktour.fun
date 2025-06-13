@@ -3,26 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>BlockTour.fun: Your Daily Puzzle & Unwind Fix</title>
     <meta name="description" content="Your daily puzzle fix! Play Block Tour, Bridge Race, and other addictive puzzle games online for free. Filter by category to find your perfect game.">
     <meta name="keywords" content="Block Tour, Bridge Race, puzzle game, online game, block puzzle, brain game, free game, daily puzzle, puzzle fix, action games, skill games">
-    
     <link rel="canonical" href="https://blocktour.fun/">
-    
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <style>
         @import url('https://rsms.me/inter/inter.css');
         html { font-family: 'Inter', sans-serif; }
-        .aspect-ratio-16-9 { position: relative; width: 100%; padding-bottom: 56.25%; }
-        .aspect-ratio-16-9 iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-        
-        /* ▼▼▼ 用于高亮当前选中筛选按钮的CSS样式 ▼▼▼ */
         .filter-btn.active {
             background-color: #2563EB; /* Tailwind's blue-600 */
             color: white;
@@ -30,7 +21,6 @@
         }
     </style>
 </head>
-
 <body class="bg-gray-50 dark:bg-black text-gray-800 dark:text-gray-200 antialiased">
 
     <nav class="w-full border-b dark:border-gray-800 bg-white dark:bg-gray-900/50 backdrop-blur-sm sticky top-0 z-50">
@@ -69,7 +59,7 @@
 
                 <div id="game-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     
-                    <a href="/" class="game-card block group bg-white dark:bg-gray-900 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300" data-category="puzzle logic relaxing">
+                    <a href="/block-tour.html" class="game-card block group bg-white dark:bg-gray-900 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300" data-category="puzzle logic relaxing">
                         <div class="overflow-hidden rounded-t-lg">
                             <img src="/images/block-tour-kfz.jpg" alt="Block Tour Game Thumbnail" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
                         </div>
@@ -126,14 +116,14 @@
 
             if (filterButtons.length > 0 && gameCards.length > 0) {
                 filterButtons.forEach(button => {
-                    button.addEventListener('click', () => {
-                        // 更新按钮的高亮状态
+                    button.addEventListener('click', (e) => {
+                        e.preventDefault(); // 阻止a标签的默认跳转行为
+                        
                         filterButtons.forEach(btn => btn.classList.remove('active'));
                         button.classList.add('active');
 
                         const filter = button.dataset.filter;
 
-                        // 遍历所有游戏卡片，根据筛选条件显示或隐藏
                         gameCards.forEach(card => {
                             const categories = card.dataset.category || '';
                             if (filter === 'all' || categories.includes(filter)) {
