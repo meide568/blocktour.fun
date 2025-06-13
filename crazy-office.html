@@ -26,7 +26,11 @@
     </div>
 </nav> <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
         <header class="text-center mb-8">
-            <h1 class="text-4xl md:text-5xl font-extrabold tracking-tighter text-gray-900 dark:text-white">Crazy Office Slap and Smash</h1>
+            <h1 class="text-4xl md:text-5xl font-extrabold tracking-tighter text-gray-900 dark:text-white">Crazy Office Slap and Smash
+            </h1>
+            <button id="fullscreen-btn" class="mt-2 px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition">
+    Enter Fullscreen
+</button>
         </header>
         <main>
             <section id="game-container">
@@ -42,5 +46,26 @@
             <p class="text-sm text-gray-500 dark:text-gray-400">&copy; 2025 blocktour.fun. All Rights Reserved.</p>
         </footer>
     </div>
+<script>
+    // 找到我们刚刚添加的“全屏”按钮
+    const fullscreenBtn = document.getElementById('fullscreen-btn');
+    // 找到包含游戏的iframe
+    const gameIframe = document.querySelector('#game-container iframe');
+
+    // 只有当两个元素都找到时，才进行下一步
+    if (fullscreenBtn && gameIframe) {
+        // 为“全屏”按钮添加一个点击事件
+        fullscreenBtn.addEventListener('click', () => {
+            // 检查并调用不同浏览器支持的全屏API
+            if (gameIframe.requestFullscreen) {
+                gameIframe.requestFullscreen();
+            } else if (gameIframe.webkitRequestFullscreen) { /* 兼容 Safari */
+                gameIframe.webkitRequestFullscreen();
+            } else if (gameIframe.msRequestFullscreen) { /* 兼容 IE11 */
+                gameIframe.msRequestFullscreen();
+            }
+        });
+    }
+</script>
 </body>
 </html>
