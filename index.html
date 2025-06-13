@@ -22,7 +22,7 @@
         .aspect-ratio-16-9 { position: relative; width: 100%; padding-bottom: 56.25%; }
         .aspect-ratio-16-9 iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
         
-        /* ▼▼▼ 新增的CSS样式，用于高亮当前选中的筛选按钮 ▼▼▼ */
+        /* ▼▼▼ 用于高亮当前选中筛选按钮的CSS样式 ▼▼▼ */
         .filter-btn.active {
             background-color: #2563EB; /* Tailwind's blue-600 */
             color: white;
@@ -124,31 +124,27 @@
             const filterButtons = document.querySelectorAll('.filter-btn');
             const gameCards = document.querySelectorAll('.game-card');
 
-            filterButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    // 移除所有按钮的 'active' 状态
-                    filterButtons.forEach(btn => {
-                        btn.classList.remove('active');
-                        btn.classList.remove('bg-blue-600', 'text-white', 'font-semibold');
-                    });
+            if (filterButtons.length > 0 && gameCards.length > 0) {
+                filterButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        // 更新按钮的高亮状态
+                        filterButtons.forEach(btn => btn.classList.remove('active'));
+                        button.classList.add('active');
 
-                    // 为当前点击的按钮添加 'active' 状态
-                    button.classList.add('active');
-                    button.classList.add('bg-blue-600', 'text-white', 'font-semibold');
+                        const filter = button.dataset.filter;
 
-                    const filter = button.dataset.filter;
-
-                    // 遍历所有游戏卡片，根据筛选条件显示或隐藏
-                    gameCards.forEach(card => {
-                        const categories = card.dataset.category;
-                        if (filter === 'all' || (categories && categories.includes(filter))) {
-                            card.style.display = 'block';
-                        } else {
-                            card.style.display = 'none';
-                        }
+                        // 遍历所有游戏卡片，根据筛选条件显示或隐藏
+                        gameCards.forEach(card => {
+                            const categories = card.dataset.category || '';
+                            if (filter === 'all' || categories.includes(filter)) {
+                                card.style.display = 'block';
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        });
                     });
                 });
-            });
+            }
         });
     </script>
 </body>
