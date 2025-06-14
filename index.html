@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BlockTour.fun: Your Daily Puzzle & Unwind Fix</title>
-    <meta name="description" content="Your daily puzzle fix! Play Block Tour, Bridge Race, Paper Boy Race and other addictive puzzle games online for free.">
-    <meta name="keywords" content="Block Tour, Bridge Race, Paper Boy Race, puzzle game, online game, block puzzle, brain game, free game, daily puzzle, puzzle fix, action games, skill games">
+    <meta name="description" content="Your daily puzzle fix! Play Block Tour, Cue Billiard Club, and other addictive puzzle and skill games online for free.">
+    <meta name="keywords" content="Block Tour, Cue Billiard Club, puzzle game, skill game, pool, billiard, online game, free game, daily puzzle">
     <link rel="canonical" href="https://blocktour.fun/">
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -15,7 +15,7 @@
         @import url('https://rsms.me/inter/inter.css');
         html { font-family: 'Inter', sans-serif; }
         .filter-btn.active {
-            background-color: #2563EB; /* Tailwind's blue-600 */
+            background-color: #2563EB;
             color: white;
             font-weight: 600;
         }
@@ -92,12 +92,24 @@
                     </a>
                     
                     <a href="/paper-boy-race-running-game.html" class="game-card block group bg-white dark:bg-gray-900 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300" data-category="action racing skill">
-                        <div class="overflow-hidden rounded-t-lg">
-                            <img src="/images/paper-boy-race.jpg" alt="Paper Boy Race Game Thumbnail" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
-                        </div>
+                        <div class="overflow-hidden rounded-t-lg"><img src="/images/paper-boy-race.jpg" alt="Paper Boy Race Game Thumbnail" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"></div>
                         <div class="p-4">
                            <h3 class="text-lg font-bold text-gray-900 dark:text-white">Paper Boy Race</h3>
                            <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Deliver papers and dodge obstacles!</p>
+                        </div>
+                    </a>
+                    
+                    <a href="/cue-billiard-club.html" class="game-card block group bg-white dark:bg-gray-900 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300" data-category="skill sports relaxing">
+                        <div class="overflow-hidden rounded-t-lg">
+                            <img src="/images/cue-billiard-club.jpg" alt="Cue Billiard Club Game Thumbnail" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="p-4">
+                           <h3 class="text-lg font-bold text-gray-900 dark:text-white">Cue Billiard Club</h3>
+                           <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Show off your pool skills in this realistic billiard game.</p>
+                           <div class="mt-3 flex flex-wrap gap-2">
+                               <span class="bg-indigo-100 text-indigo-800 text-xs font-semibold px-2.5 py-0.5 rounded-full dark:bg-indigo-900 dark:text-indigo-300">Skill</span>
+                               <span class="bg-purple-100 text-purple-800 text-xs font-semibold px-2.5 py-0.5 rounded-full dark:bg-purple-900 dark:text-purple-300">Sports</span>
+                           </div>
                         </div>
                     </a>
 
@@ -113,7 +125,31 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // ... (省略未改变的脚本内容)
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const gameCards = document.querySelectorAll('.game-card');
+
+            if (filterButtons.length > 0 && gameCards.length > 0) {
+                filterButtons.forEach(button => {
+                    button.addEventListener('click', (e) => {
+                        // This prevents the browser from following the link, if the button were a link
+                        // e.preventDefault(); 
+                        
+                        filterButtons.forEach(btn => btn.classList.remove('active'));
+                        button.classList.add('active');
+
+                        const filter = button.dataset.filter;
+
+                        gameCards.forEach(card => {
+                            const categories = card.dataset.category || '';
+                            if (filter === 'all' || categories.includes(filter)) {
+                                card.style.display = 'block';
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        });
+                    });
+                });
+            }
         });
     </script>
 </body>
