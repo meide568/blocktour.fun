@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Play [GAME_TITLE] Online | blocktour.fun</title>
-
     <link rel="icon" href="/favicon.ico" sizes="any">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -17,15 +15,26 @@
 </head>
 <body class="bg-gray-50 dark:bg-black text-gray-800 dark:text-gray-200 antialiased">
 
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+<nav class="w-full border-b dark:border-gray-800 bg-gray-50 dark:bg-black">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-4">
+        <div>
+            <a href="/" class="text-xl font-bold text-gray-900 dark:text-white hover:text-gray-700 dark:hover:text-gray-300">BlockTour.fun</a>
+        </div>
+        <div class="space-x-6">
+            <a href="/" class="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition">All Games</a>
+            <a href="/about.html" class="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition">About Us</a>
+        </div>
+    </div>
+</nav>
 
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
         <header class="text-center mb-8">
             <h1 class="text-4xl md:text-5xl font-extrabold tracking-tighter text-gray-900 dark:text-white">
                 [GAME_TITLE]
             </h1>
-       <button id="fullscreen-btn" class="mt-2 px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition">
-    Enter Fullscreen
-</button>
+            <button id="fullscreen-btn" class="mt-2 px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition">
+                Enter Fullscreen
+            </button>
         </header>
 
         <main>
@@ -36,52 +45,47 @@
             <div class="text-center mt-8">
                 <a href="/" class="text-blue-600 dark:text-blue-400 hover:underline">&larr; Back to All Games</a>
             </div>
-       
-<section id="comments" class="mt-12 md:mt-16 pt-8 border-t border-gray-200 dark:border-gray-800">
-        <h2 class="text-2xl font-bold text-left text-gray-900 dark:text-white mb-4">Feedback & Comments</h2>
         
-        <script src="https://giscus.app/client.js"
-                data-repo="meide568/blocktour.fun"
-                data-repo-id="R_kgDOO5SgMQ"
-                data-category="General"
-                data-category-id="DIC_kwDOO5SgMc4CrfcB"
-                data-mapping="pathname"
-                data-strict="0"
-                data-reactions-enabled="1"
-                data-emit-metadata="0"
-                data-input-position="bottom"
-                data-theme="preferred_color_scheme"
-                data-lang="en"
-                crossorigin="anonymous"
-                async>
-        </script>
-    </section>
-</main>
+            <section id="comments" class="mt-12 md:mt-16 pt-8 border-t border-gray-200 dark:border-gray-800">
+                <h2 class="text-2xl font-bold text-left text-gray-900 dark:text-white mb-4">Feedback & Comments</h2>
+                <script src="https://giscus.app/client.js"
+                        data-repo="meide568/blocktour.fun"
+                        data-repo-id="R_kgDOO5SgMQ"
+                        data-category="General"
+                        data-category-id="DIC_kwDOO5SgMc4CrfcB"
+                        data-mapping="pathname"
+                        data-strict="0"
+                        data-reactions-enabled="1"
+                        data-emit-metadata="0"
+                        data-input-position="bottom"
+                        data-theme="preferred_color_scheme"
+                        data-lang="en"
+                        crossorigin="anonymous"
+                        async>
+                </script>
+            </section>
+        </main>
+
         <footer class="text-center mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
             <p class="text-sm text-gray-500 dark:text-gray-400">&copy; 2025 blocktour.fun. All Rights Reserved.</p>
         </footer>
-
     </div>
-<script>
-    // 找到我们刚刚添加的“全屏”按钮
-    const fullscreenBtn = document.getElementById('fullscreen-btn');
-    // 找到包含游戏的iframe
-    const gameIframe = document.querySelector('#game-container iframe');
 
-    // 只有当两个元素都找到时，才进行下一步
-    if (fullscreenBtn && gameIframe) {
-        // 为“全屏”按钮添加一个点击事件
-        fullscreenBtn.addEventListener('click', () => {
-            // 检查并调用不同浏览器支持的全屏API
-            if (gameIframe.requestFullscreen) {
-                gameIframe.requestFullscreen();
-            } else if (gameIframe.webkitRequestFullscreen) { /* 兼容 Safari */
-                gameIframe.webkitRequestFullscreen();
-            } else if (gameIframe.msRequestFullscreen) { /* 兼容 IE11 */
-                gameIframe.msRequestFullscreen();
-            }
-        });
-    }
-</script>
+    <script>
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const gameIframe = document.querySelector('#game-container iframe');
+
+        if (fullscreenBtn && gameIframe) {
+            fullscreenBtn.addEventListener('click', () => {
+                if (gameIframe.requestFullscreen) {
+                    gameIframe.requestFullscreen();
+                } else if (gameIframe.webkitRequestFullscreen) {
+                    gameIframe.webkitRequestFullscreen();
+                } else if (gameIframe.msRequestFullscreen) {
+                    gameIframe.msRequestFullscreen();
+                }
+            });
+        }
+    </script>
 </body>
 </html>
